@@ -38,6 +38,11 @@ templates = Jinja2Templates(directory="templates")
 UPLOAD_FOLDER = "static/images/"
 
 
+@app.get('/')
+def testget():
+    d = [{'User':'Vishal', 'Message':'Working'}]
+    return JSONResponse(content=jsonable_encoder(d))
+
 @app.get('/jsontest')
 def test():
     d = [{'User':'Vishal', 'Count':25}]
